@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ToDo</string>
+    <string name="sort_by">Sort By</string>
+    <string name="popup_added">Date Added</string>
+    <string name="popup_end">Deadline</string>
+    <string-array name="names">
+        <item>End Date: Earliest</item>
+        <item>End Date: Latest</item>
+        <item>Date Added: Earliest</item>
+        <item>Date Added: Latest</item>
+        <item>Importance: Highest</item>
+        <item>Importance: Lowest</item>
+    </string-array>
+</resources>
