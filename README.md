@@ -1,1 +1,13 @@
-# Todo
+# ToDo
+
+## Project [프로젝트] ##
+
+ToDo is an android application for organizing and managing tasks. [ToDo는 업무 정리 및 관리를 위한 안드로이드 앱입니다.]
+
+## Status [현황] ##
+
+1. Published on Google Play Store on 6th November 2019 (Alpha version) [2019년 11월 6일 구글 플레이 스토어에 게시 (알파버전)]
+
+## Author [저작자]
+
+* **Edward Jiwook Kim [김지욱]** - *Initial work* - (https://github.com/j533kim)
