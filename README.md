@@ -6,6 +6,8 @@ ToDo is an android application for organizing and managing tasks. [ToDo는 업�
 
 ## Status [현황] ##
 
+v1.2.1
+
 1. Published on Google Play Store on 6th November 2019 (Alpha version) [2019년 11월 6일 구글 플레이 스토어에 게시 (알파버전)]
 
 ## Author [저작자]
