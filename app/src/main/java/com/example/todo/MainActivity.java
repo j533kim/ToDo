@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView view; // RecyclerView
     private ArrayAdapter<String> myAdapter; // Spinner
     private ImageView addBtn; // Adding Item
-    private ImageView refreshBtn;
+    private ImageView refreshBtn; // Refreshing D-day Indicators
     private ArrayList<CardViewItemDTO> items; // ArrayList of all Items
     private MyRecyclerViewAdapter adapter; // Adapter
     private SharedPreferences sharedPreferences; // For Saving Data
@@ -197,7 +197,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         // Add Button
-
         addBtn = findViewById(R.id.add_button);
         addBtn.setOnClickListener(this);
         refreshBtn = findViewById(R.id.refresh_button);
@@ -223,6 +222,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             items = new ArrayList<>();
         }
         adapter.setCardViewItemDTOs(items);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -230,6 +230,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.add_button: // Generate text fields for new task
                 startActivity(new Intent(MainActivity.this, AddActivity.class));
+                finish();
                 break;
             case R.id.refresh_button: // Update Day Counters
                 adapter.notifyDataSetChanged();

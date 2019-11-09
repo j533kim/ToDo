@@ -1,5 +1,6 @@
 package com.example.todo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -88,7 +89,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 textViewAdd.setText(dateAdd);
                 textViewEnd.setText(dateEnd);
 
-
                 // create the popup window
                 int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
@@ -127,6 +127,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 }
                 i.putExtra("done", cardViewItemDTOs.get(position).done);
                 context.startActivity(i);
+                ((Activity)context).finish();
                 cardViewItemDTOs.remove(cardViewItemDTOs.get(position));
                 notifyDataSetChanged();
                 saveData();
@@ -165,14 +166,12 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             num = (int)Math.floor(diff / (24 * 60));
             result += num + (num > 1 ? "Days" : "Day");
         } else {
-            if (diff == 0) {
-                result += "0";
-            } else if (diff <= 60) {
+            if (diff <= 60) {
                 num = (int)Math.floor(diff);
-                result += num + (num > 1 ? "Mins" : "Min");
+                result += num + (num > 1 ? "mins" : "min");
             } else {
                 num = (int)Math.floor(diff / 60);
-                result += num + (num > 1 ? "Hrs" : "Hr");
+                result += num + (num > 1 ? "hrs" : "hr");
             }
         }
         return result;

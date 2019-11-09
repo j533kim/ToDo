@@ -145,23 +145,25 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     @Override
+    public void onBackPressed() {
+        if (extras == null) {
+            Intent i = new Intent(AddActivity.this, MainActivity.class);
+            startActivity(i);
+            finish();
+        } else {
+            String endDate_= "";
+            if (originalEndTime.length() + originalEndDate.length() != 0) {
+                endDate_ = originalEndDate + " " + originalEndTime;
+            }
+            assignIntent(originalTask, originalImportance, originalDetails, originalStartDate, endDate_);
+        }
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.cancel_button: // cancel adding task
-                if (extras != null) {
-                    Intent i = new Intent(AddActivity.this, MainActivity.class);
-                    i.putExtra("title", originalTask);
-                    i.putExtra("importance", originalImportance);
-                    i.putExtra("details", originalDetails);
-                    i.putExtra("startDate", originalStartDate);
-                    i.putExtra("done", done);
-                    if (originalEndTime.length() + originalEndDate.length() == 0) i.putExtra("endDate", "");
-                    else i.putExtra("endDate", originalEndDate + " " + originalEndTime);;
-                    startActivity(i);
-                    finish();
-                } else {
-                    finish();
-                }
+                onBackPressed();
                 break;
             case R.id.submit_button: // Adding task submitted
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -174,7 +176,6 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 } else {
                     itemStartDate = dateFormat.format(Calendar.getInstance().getTime()).toString(); // assign today's date
                 }
-
                 String date_ = newItemEndDate.getText().toString();
                 String time_ = newItemEndTime.getText().toString();
                 String itemEndDate = "";
@@ -185,24 +186,26 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
                     if (time_.length() > 0) itemEndDate = itemEndDate + time_;
                     else itemEndDate = itemEndDate + "00:00";
-
                 }
 
-                if (itemTitle.length() == 0) {
-                    // Blink the title input field
-                    break;
-                }
-                Intent i = new Intent(AddActivity.this, MainActivity.class);
-                i.putExtra("title", itemTitle);
-                i.putExtra("importance", itemImportance);
-                i.putExtra("details", itemDetails);
-                i.putExtra("startDate", itemStartDate);
-                i.putExtra("endDate", itemEndDate);
-                i.putExtra("done", done);
-                startActivity(i);
+                if (itemTitle.length() == 0) { break; } // Task Name is Always Required
+                assignIntent(itemTitle, itemImportance, itemDetails, itemStartDate, itemEndDate);
                 break;
-
         }
+    }
+
+    private void assignIntent(String task, float importance, String details, String startDate, String endDate) {
+        Intent i = new Intent(AddActivity.this, MainActivity.class);
+        if (extras != null) {
+            i.putExtra("title", task);
+            i.putExtra("importance", importance);
+            i.putExtra("details", details);
+            i.putExtra("startDate", startDate);
+            i.putExtra("endDate", endDate);;
+            i.putExtra("done", done);
+        }
+        startActivity(i);
+        finish();
     }
 }
 
