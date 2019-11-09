@@ -4,6 +4,8 @@
 
 ToDo is an android application for organizing and managing tasks. [ToDo는 업무 정리 및 관리를 위한 안드로이드 앱입니다.]
 
+https://play.google.com/store/apps/details?id=com.edwardjiwookkim.todo
+
 ## Status [현황] ##
 
 v1.2.1
