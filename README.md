@@ -13,7 +13,7 @@ v1.2.2 (9 Nov 2019) [v1.2.2 (2019년 11월 9일)]
 ## Milestones [마일스톤] ##
 
 1. Published on Google Play Store on 6th November 2019 (Alpha version) [2019년 11월 6일 구글 플레이 스토어에 게시 (알파버전)]
-2. Publication v1.1.0 (9 Nov 2019) [출시 v1.1.0 (2019년 11월 9일)]
+2. First Release: v1.1.0 (9 Nov 2019) [출시 v1.1.0 (2019년 11월 9일)]
 
 ## Author [저작자]
 
